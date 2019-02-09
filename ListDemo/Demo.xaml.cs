@@ -7,17 +7,31 @@ namespace ListDemo
 {
     public partial class Demo : ContentPage
     {
-        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        void Call_Clicked(object sender, System.EventArgs e)
         {
-            var contact = e.Item as Contact;
-            DisplayAlert("Selected", contact.Name, "OK");
+            var menuItem = sender as MenuItem;
+            var contact = menuItem.CommandParameter as Contact;
+
+            DisplayAlert("Call?", contact.Name, "OK");
         }
 
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        void Delete_Clicked(object sender, System.EventArgs e)
         {
-            var contact = e.SelectedItem as Contact;
-            DisplayAlert("Tapped", contact.Name, "OK");
+
         }
+
+        //void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        //{
+        // var contact = e.Item as Contact;
+        // DisplayAlert("Selected", contact.Name, "OK");
+        // }
+
+        /* void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+         {
+             var contact = e.SelectedItem as Contact;
+             DisplayAlert("Tapped", contact.Name, "OK");
+         }
+         */
 
         public Demo()
         {
